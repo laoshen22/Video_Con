@@ -28,7 +28,13 @@ if (navigator.getUserMedia) {
       // Log the error to the console.
       console.log('The following error occurred when trying to use getUserMedia: ' + err);
     }
-  );
+    // Get a reference to the video element on the page.
+var vid = document.getElementById('camera-stream');
+
+// Create an object URL for the video stream and use this 
+// to set the video source.
+vid.src = window.URL.createObjectURL(localMediaStream);
+
 
 } else {
   alert('Sorry, your browser does not support getUserMedia');
